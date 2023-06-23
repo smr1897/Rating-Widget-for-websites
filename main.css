@@ -11,12 +11,33 @@ html,body{
     height: 100%;
     place-items: center;
     text-align: center;
-    background: #000;
+    background: #f5e7e7;
+}
+
+.container .text{
+    font-size: 25px;
+    color: #666;
+    font-weight: 500;
+}
+
+.container .edit{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.container .edit:hover{
+    text-decoration: underline;
 }
 
 .container{
+    position: relative;
     width: 400px;
-    background: #111;
+    background: #111111;
     padding: 20px 30px;
     border: 1px solid #444;
     border-radius: 5px;
@@ -24,6 +45,10 @@ html,body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.container .post{
+    display: none; 
 }
 
 .container .rating-widget input{
@@ -50,6 +75,30 @@ input:checked ~ label{
 input#rate-5:checked ~ label{
     color: #fe7;
     text-shadow: 0 0 20px #952;
+}
+
+#rate-1:checked ~ form header:before{
+    content: "Poor 😔";
+}
+#rate-2:checked ~ form header:before{
+    content: "Not Bad 😏";
+}
+#rate-3:checked ~ form header:before{
+    content: "Good 😉";
+}
+#rate-4:checked ~ form header:before{
+    content: "Great 😍";
+}
+#rate-5:checked ~ form header:before{
+    content: "Awesome 😍😍";
+}
+
+.container form{
+    display: none;
+}
+
+input:checked ~ form{
+    display:block;
 }
 
 form header{
@@ -97,6 +146,7 @@ form .btn button{
     font-weight: 500;
     text-transform: uppercase;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 form .btn button:hover{
